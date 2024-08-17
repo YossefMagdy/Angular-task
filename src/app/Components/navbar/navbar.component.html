@@ -18,10 +18,12 @@
           (keyup)="productSearch($event)"
         />
       </div>
+      @if (userInfo()) {
+        <i class="fa-solid fa-cart-shopping shoppingCart">
+          <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
+        </i>
+      }
 
-      <i class="fa-solid fa-cart-shopping shoppingCart">
-        <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
-      </i>
 
       @if (userInfo()) {
         <p class="userinfo">
@@ -61,8 +63,11 @@
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" placeholder="Search" (keyup)="productSearch($event)" />
     </div>
-    <i class="fa-solid fa-cart-shopping shoppingCart">
-      <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
-    </i>
+    @if (userInfo()) {
+      <i class="fa-solid fa-cart-shopping shoppingCart">
+        <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
+      </i>
+    }
+ 
   </div>
 </nav>
