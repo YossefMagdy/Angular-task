@@ -5,19 +5,25 @@
         <img src="image/Content.svg" alt="content" />
         <span>ClickTik</span>
       </div>
-      <ul>
-        <li>Home</li>
-      </ul>
+      @if (userInfo()) {
+        <ul>
+          <li [routerLink]="['/home']">Home</li>
+        </ul>
+      }
+   
     </div>
     <div>
-      <div class="search-input">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input
-          type="text"
-          placeholder="Search"
-          (keyup)="productSearch($event)"
-        />
-      </div>
+      @if (userInfo()) {
+        <div class="search-input">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            placeholder="Search"
+            (keyup)="productSearch($event)"
+          />
+        </div>
+      }
+     
       @if (userInfo()) {
         <i class="fa-solid fa-cart-shopping shoppingCart">
           <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
@@ -53,21 +59,24 @@
       </i>
     </div>
   </div>
-  <div class="container">
-    @if (userInfo()) {
+  @if (userInfo()) {
+    <div class="container">
+  
       <p class="userinfo">
         {{ userInfo()?.firstName + " " + userInfo()?.lastName }}
       </p>
-    }
+
     <div class="search-input">
       <i class="fa-solid fa-magnifying-glass"></i>
       <input type="text" placeholder="Search" (keyup)="productSearch($event)" />
     </div>
-    @if (userInfo()) {
+  
       <i class="fa-solid fa-cart-shopping shoppingCart">
         <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
       </i>
-    }
+    
  
   </div>
+  }
+  
 </nav>
