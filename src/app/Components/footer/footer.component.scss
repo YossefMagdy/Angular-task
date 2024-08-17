@@ -1,0 +1,41 @@
+footer {
+  height: 120px;
+  background-color: #1d2939;
+  color: white;
+  display: flex;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  & > div {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      display: flex;
+      align-items: center;
+      img {
+        margin-inline-end: 0.5em;
+      }
+      span {
+        font-weight: 500;
+        font-size: 1em;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin-inline-start: 3em;
+      li {
+        color: gray;
+      }
+    }
+  }
+}
+
+p {
+  color: rgb(178, 175, 175);
+}

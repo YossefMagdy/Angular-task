@@ -1,0 +1,128 @@
+.product-container {
+  margin-top: 10px;
+}
+.row {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 10px;
+}
+
+.col-3-filter {
+  grid-column: span 3;
+}
+.col-9-content {
+  grid-column: span 9;
+}
+
+.filter-box {
+  height: 15em;
+  padding: 15px;
+  border: 1px solid #667085;
+  overflow: hidden;
+  border-radius: 8px;
+  ul {
+    list-style: none;
+    margin: 20px 0 0 0;
+    padding: 20px 0;
+    li {
+      padding: 5px 0;
+      cursor: pointer;
+      label {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: gray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.col-4-product {
+  grid-column: span 4;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  width: fit-content;
+  margin: 20px auto;
+  li {
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  li.page-item.active {
+    background-color: #41cccc;
+  }
+}
+
+@media (max-width: 1050px) {
+  .col-4-product {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 900px) {
+  .col-3-filter {
+    grid-column: span 4;
+  }
+  .col-9-content {
+    grid-column: span 8;
+  }
+  .col-4-product {
+    grid-column: span 12;
+  }
+}
+@media (max-width: 750px) {
+  .col-3-filter {
+    grid-column: span 6;
+  }
+  .col-9-content {
+    grid-column: span 6;
+  }
+}
+@media (max-width: 645px) {
+  .col-3-filter {
+    grid-column: span 12;
+  }
+  .filter-box {
+    height: auto !important;
+
+    ul {
+      display: flex;
+      height: auto;
+      overflow-y: hidden;
+      li {
+        width: 200px;
+        white-space: nowrap;
+        margin: 0 6px;
+        input {
+          margin-inline-start: 5px;
+        }
+      }
+    }
+  }
+  ::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+  }
+  .col-9-content {
+    grid-column: span 12;
+  }
+}

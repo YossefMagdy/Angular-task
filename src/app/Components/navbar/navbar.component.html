@@ -1,0 +1,68 @@
+<nav>
+  <div class="container">
+    <div>
+      <div class="logo">
+        <img src="image/Content.svg" alt="content" />
+        <span>ClickTik</span>
+      </div>
+      <ul>
+        <li>Home</li>
+      </ul>
+    </div>
+    <div>
+      <div class="search-input">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input
+          type="text"
+          placeholder="Search"
+          (keyup)="productSearch($event)"
+        />
+      </div>
+
+      <i class="fa-solid fa-cart-shopping shoppingCart">
+        <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
+      </i>
+
+      @if (userInfo()) {
+        <p class="userinfo">
+          {{ userInfo()?.firstName + " " + userInfo()?.lastName }}
+        </p>
+      }
+      <i class="fa-solid fa-gear menu" (click)="openMenu = !openMenu">
+        @if (openMenu) {
+          <div>
+            <section class="center">
+              <app-button
+                [styleObj]="{
+                  'background-color': 'gray',
+                  border: 'none',
+                  width: '100%',
+                  height: '30px',
+                  'border-radius': '10px',
+                  color: 'white',
+                }"
+                routerLink="/auth/login"
+                (click)="userInfo() ? logout() : null"
+                >{{ userInfo() ? "Log out" : "Log in" }}</app-button
+              >
+            </section>
+          </div>
+        }
+      </i>
+    </div>
+  </div>
+  <div class="container">
+    @if (userInfo()) {
+      <p class="userinfo">
+        {{ userInfo()?.firstName + " " + userInfo()?.lastName }}
+      </p>
+    }
+    <div class="search-input">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search" (keyup)="productSearch($event)" />
+    </div>
+    <i class="fa-solid fa-cart-shopping shoppingCart">
+      <p class="cartitem-number">{{ cartItem$ | async | length }}</p>
+    </i>
+  </div>
+</nav>

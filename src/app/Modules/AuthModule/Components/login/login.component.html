@@ -1,0 +1,65 @@
+<section class="login-section">
+  <div class="container">
+    <img src="image/Content.svg" alt="" />
+    <h2>Log in to your account</h2>
+    <p>Welcome back! please enter your details</p>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="input-container">
+        <label for="email">Username</label>
+        <input
+          formControlName="username"
+          type="text"
+          placeholder="Enter your Username"
+        />
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('email')?.errors && loginForm.get('email')?.touched
+          "
+        >
+          <p *ngIf="loginForm.get('username')?.getError('required')">
+            * userName is required
+          </p>
+          <p *ngIf="loginForm.get('username')?.getError('minlength')">
+            * minLength 6
+          </p>
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="Password">Password</label>
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="Enter your Password"
+        />
+        <div
+          class="error"
+          *ngIf="
+            loginForm.get('password')?.errors &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <p *ngIf="loginForm.get('password')?.getError('required')">
+            * password is required
+          </p>
+          <p *ngIf="loginForm.get('password')?.getError('minlength')">
+            * password more than 6
+          </p>
+        </div>
+      </div>
+      <app-button
+        buttonType="submit"
+        [styleObj]="{
+          'background-color': '#41CCCC',
+          width: '100%',
+          height: '35px',
+          'border-radius': '5px',
+          border: 'none',
+          display: 'block',
+          margin: 'auto',
+        }"
+        >Sign in</app-button
+      >
+    </form>
+  </div>
+</section>

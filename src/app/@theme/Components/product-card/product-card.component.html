@@ -1,0 +1,52 @@
+<section class="product-card">
+  <div class="img-container">
+    <img [src]="product().images[0]" />
+  </div>
+  <div class="product-info-container">
+    <h3 class="product-title" [title]="product().title">
+      {{ product().title }}
+    </h3>
+    <p class="product-desc" [title]="product().description">
+      {{ product().description }}
+    </p>
+
+    <div class="price-container">
+      <p>{{ product().price }}</p>
+      <span>USD</span>
+      <p>{{ discount }}</p>
+      <span>USD</span>
+    </div>
+    <div class="product-more-info">
+      <p>Brand:</p>
+      {{ product().brand }}
+    </div>
+    <div class="product-more-info">
+      <p>Category:</p>
+      {{ product().category }}
+    </div>
+    <div class="product-more-info">
+      <p>In stock:</p>
+      {{ product().stock }}
+    </div>
+
+    <p class="product-rate">
+      <i class="fa-solid fa-star"></i> {{ product().rating }}
+      <span>({{ product().reviews.length }})</span>
+    </p>
+
+    <app-button
+      (click)="addTocart()"
+      [styleObj]="{
+        'background-color': '#41CCCC',
+        width: '100%',
+        height: '35px',
+        'border-radius': '5px',
+        border: 'none',
+        display: 'block',
+        margin: 'auto',
+      }"
+      >ADD TO CART</app-button
+    >
+  </div>
+  <p class="sale-container">{{ product().discountPercentage }}%</p>
+</section>

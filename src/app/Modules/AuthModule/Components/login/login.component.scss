@@ -1,0 +1,45 @@
+.login-section {
+  height: calc(100vh - 185px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 48px;
+    height: 48px;
+  }
+  h2 {
+    margin: 0.8em 0 0.5em;
+    letter-spacing: 1px;
+  }
+  p {
+    color: #667085;
+  }
+}
+.input-container {
+  text-align: start;
+  margin: 1em 0;
+}
+
+input {
+  width: 100%;
+  height: 35px;
+  border: 1px solid #d0d5dd;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: block;
+  margin-top: 0.4em;
+}
+
+.error {
+  p {
+    color: red;
+  }
+}
+
+@media (max-width: "500px") {
+  input {
+    width: 100%;
+  }
+}

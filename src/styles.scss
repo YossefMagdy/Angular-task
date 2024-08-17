@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  padding: 1em 5em;
+}
+
+@media (max-width: 700px) {
+  .container {
+    padding: 1em 3em;
+  }
+}
+@media (max-width: 611px) {
+  .container {
+    padding: 1em 1em;
+  }
+}
